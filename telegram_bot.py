@@ -7,7 +7,7 @@ import multiprocessing
 import subprocess
 import datetime
 
-TELEGRAM_TOKEN = "6616611678:AAEVGAnVbc2w2biSU4JqvI9m-KA5hq_4pm8"
+BOT_TOKEN = "6616611678:AAEVGAnVbc2w2biSU4JqvI9m-KA5hq_4pm8"
 
 # Definieren Sie Konstanten für die verschiedenen Stadien der Konversation
 SEARCH_TERM, SLEEP_TIME = range(2)
@@ -134,7 +134,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 def main():
     # Erstellen Sie den Updater und übergeben Sie Ihr Bot-Token.
-    app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
+    app = ApplicationBuilder().token(BOT_TOKEN).build()
 
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('startworker', start_worker)],

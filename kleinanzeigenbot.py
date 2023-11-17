@@ -36,7 +36,7 @@ def extract_list_item_data(item):
 def return_items_from_req(searchterm):
 
     # URL und Header für Webrequest
-    req_url = "https://www.kleinanzeigen.de/s-pc-zubehoer-software/" + searchterm + "/k0c255"
+    req_url = "https://www.kleinanzeigen.de/s-" + searchterm + "/k0"
 
     # Webrequest
     print(timestamp() + 'sending web_request for term: \'' + searchterm + '\'')
