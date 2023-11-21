@@ -43,14 +43,15 @@ def run_async_monitor(app):
 
 async def monitor_queue_and_notify(app):
     while True:
-        item = message_bus_queue.get()  # Blockiert, bis ein Element verfügbar ist
+        searchterm, item = message_bus_queue.get()  # Blockiert, bis ein Element verfügbar ist
         for chat_id in chat_ids_for_notifications:
             try:
                 # Erstellen Sie eine formatierte Nachricht
                 message_text = (
+                    f"Suche nach \"{searchterm}\":\n"
                     f"{item['title']}\n"
                     f"Preis: {item['price']} | {item['location']}\n"
-                    f"Versandmglk.: {item['shipping']}\n"
+                    f"{item['shipping']}\n"
                     f"Link: https://www.kleinanzeigen.de{item['link']}"
                 )
 
