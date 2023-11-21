@@ -83,7 +83,7 @@ class KleinanzeigenBot(threading.Thread):
                 existing_adids.add(item_data['data-adid'])
                 added_count += 1  # Erhöhe den Zähler
                 # Hier fügen wir das neue Item in die message_bus_queue ein
-                self.message_bus_queue.put(item_data)
+                self.message_bus_queue.put((self.searchterm, item_data))
 
         with open(filepath, 'w') as file:
             json.dump(existing_items, file, indent=4)
