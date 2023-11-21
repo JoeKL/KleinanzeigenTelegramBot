@@ -36,7 +36,7 @@ class KleinanzeigenBot(threading.Thread):
     def return_items_from_req(self, searchterm):
 
         # URL und Header für Webrequest
-        req_url = "https://www.kleinanzeigen.de/s-" + searchterm + "/k0"
+        req_url = f"https://www.kleinanzeigen.de/s/preis:{self.search_price_min}:{self.search_price_max}/{self.searchterm}/k0"
 
         # Webrequest
         print(self.timestamp() + 'sending web_request for term: \'' + searchterm + '\'')
@@ -92,12 +92,17 @@ class KleinanzeigenBot(threading.Thread):
 
 
 
-    def __init__(self, searchterm, sleeptime, message_bus_queue):
+    def __init__(self, searchterm, sleeptime, message_bus_queue, search_category, search_price_min, search_price_max):
         threading.Thread.__init__(self)
+        
         self.searchterm = searchterm
         self.sleeptime = sleeptime
+
         self.message_bus_queue = message_bus_queue
-        self.stop_running = False
+
+        self.search_category = search_category
+        self.search_price_min = search_price_min
+        self.search_price_max = search_price_max
 
 
         # Erstelle den Dateipfad

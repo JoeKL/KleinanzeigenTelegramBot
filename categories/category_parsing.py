@@ -19,12 +19,10 @@ for line in category_lines:
 
         # Überprüfen des Einrückungsniveaus
         if line.startswith("-"):  # Hauptkategorie
-            main_categories.append({"title": text, "callback_data": f"category_main_{data_val}"})
-            subcategories[data_val] = []
-            current_main_category = data_val
-        elif line.startswith("--"):  # Unterkategorie
-            subcategories[current_main_category].append({"title": text, "callback_data": f"category_sub_{data_val}"})
+            main_categories.append({"title": text, "callback_data": f"category_main_{data_val[1:]}"})
+            subcategories[data_val[1:]] = []
+            current_main_category = data_val[1:]
+        elif line.startswith("_"):  # Unterkategorie
+            subcategories[current_main_category].append({"title": text, "callback_data": f"category_sub_{data_val[2:]}"})
 
-
-            
 print(subcategories)
