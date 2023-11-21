@@ -1,5 +1,7 @@
 # Kleinanzeigen Telegram Bot
 
+![Banner generated with Dall-E](banner.png)
+
 ## Überblick
 Dieser Telegram Bot hält Ausschau auf der Kleinanzeigen-Webseite nach neuen Angeboten, die zu benutzerdefinierten Suchbegriffen und Zeitintervallen passen. Der Bot nutzt die Telegram API, um Benutzer über neue Angebote zu informieren.
 
