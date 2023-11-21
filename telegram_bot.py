@@ -534,7 +534,7 @@ def main():
     app.add_handler(CommandHandler("help", help))
     app.add_handler(CallbackQueryHandler(button_handler))
 
-    app.add_handler(CommandHandler("categories", show_main_categories))
+    # app.add_handler(CommandHandler("categories", show_main_categories))
 
     # Starten Sie den Bot
     app.run_polling()
