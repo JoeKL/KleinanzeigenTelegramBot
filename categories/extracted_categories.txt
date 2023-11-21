@@ -1,0 +1,156 @@
+0, Alle Kategorien
+210, Auto, Rad & Boot
+216, Autos
+223, Autoteile & Reifen
+211, Boote & Bootszubehör
+217, Fahrräder & Zubehör
+305, Motorräder & Motorroller
+306, Motorradteile & Zubehör
+276, Nutzfahrzeuge & Anhänger
+280, Reparaturen & Dienstleistungen
+220, Wohnwagen & -mobile
+241, Weiteres Auto, Rad & Boot
+297, Dienstleistungen
+288, Altenpflege
+289, Auto, Rad & Boot
+290, Babysitter/-in & Kinderbetreuung
+293, Elektronik
+291, Haus & Garten
+292, Künstler/-in & Musiker/-in
+294, Reise & Event
+295, Tierbetreuung & Training
+296, Umzug & Transport
+298, Weitere Dienstleistungen
+231, Eintrittskarten & Tickets
+286, Bahn & ÖPNV
+254, Comedy & Kabarett
+287, Gutscheine
+252, Kinder
+255, Konzerte
+257, Sport
+251, Theater & Musical
+256, Weitere Eintrittskarten & Tickets
+161, Elektronik
+172, Audio & Hifi
+226, Dienstleistungen Elektronik
+245, Foto
+173, Handy & Telefon
+176, Haushaltsgeräte
+279, Konsolen
+278, Notebooks
+228, PCs
+225, PC-Zubehör & Software
+285, Tablets & Reader
+175, TV & Video
+227, Videospiele
+168, Weitere Elektronik
+17, Familie, Kind & Baby
+236, Altenpflege
+22, Baby- & Kinderkleidung
+19, Baby- & Kinderschuhe
+258, Baby-Ausstattung
+21, Babyschalen & Kindersitze
+237, Babysitter/-in & Kinderbetreuung
+25, Kinderwagen & Buggys
+20, Kinderzimmermöbel
+23, Spielzeug
+18, Weiteres Familie, Kind & Baby
+185, Freizeit, Hobby & Nachbarschaft
+232, Esoterik & Spirituelles
+248, Essen & Trinken
+187, Freizeitaktivitäten
+282, Handarbeit, Basteln & Kunsthandwerk
+240, Kunst & Antiquitäten
+191, Künstler/-in & Musiker/-in
+249, Modellbau
+233, Reise & Eventservices
+234, Sammeln
+230, Sport & Camping
+250, Trödel
+189, Verloren & Gefunden
+242, Weiteres Freizeit, Hobby & Nachbarschaft
+80, Haus & Garten
+91, Badezimmer
+93, Büro
+246, Dekoration
+239, Dienstleistungen Haus & Garten
+89, Gartenzubehör & Pflanzen
+90, Heimtextilien
+84, Heimwerken
+86, Küche & Esszimmer
+82, Lampen & Licht
+81, Schlafzimmer
+88, Wohnzimmer
+87, Weiteres Haus & Garten
+130, Haustiere
+138, Fische
+134, Hunde
+136, Katzen
+132, Kleintiere
+135, Nutztiere
+139, Pferde
+133, Tierbetreuung & Training
+283, Vermisste Tiere
+243, Vögel
+313, Zubehör
+195, Immobilien
+199, Auf Zeit & WG
+196, Eigentumswohnungen
+275, Ferien- & Auslandsimmobilien
+197, Garagen & Stellplätze
+277, Gewerbeimmobilien
+207, Grundstücke & Gärten
+208, Häuser zum Kauf
+205, Häuser zur Miete
+203, Mietwohnungen
+238, Umzug & Transport
+198, Weitere Immobilien
+102, Jobs
+118, Ausbildung
+111, Bau, Handwerk & Produktion
+114, Büroarbeit & Verwaltung
+110, Gastronomie & Tourismus
+105, Kundenservice & Call Center
+107, Mini- & Nebenjobs
+125, Praktika
+123, Sozialer Sektor & Pflege
+247, Transport, Logistik & Verkehr
+117, Vertrieb, Einkauf & Verkauf
+109, Weitere Jobs
+153, Mode & Beauty
+224, Beauty & Gesundheit
+154, Damenbekleidung
+159, Damenschuhe
+160, Herrenbekleidung
+158, Herrenschuhe
+156, Taschen & Accessoires
+157, Uhren & Schmuck
+155, Weiteres Mode & Beauty
+73, Musik, Filme & Bücher
+76, Bücher & Zeitschriften
+281, Büro & Schreibwaren
+284, Comics
+77, Fachbücher, Schule & Studium
+79, Film & DVD
+78, Musik & CDs
+74, Musikinstrumente
+75, Weitere Musik, Filme & Bücher
+400, Nachbarschaftshilfe
+401, Nachbarschaftshilfe
+235, Unterricht & Kurse
+269, Beauty & Gesundheit
+260, Computerkurse
+265, Esoterik & Spirituelles
+263, Kochen & Backen
+264, Kunst & Gestaltung
+262, Musik & Gesang
+268, Nachhilfe
+261, Sportkurse
+271, Sprachkurse
+267, Tanzkurse
+266, Weiterbildung
+270, Weitere Unterricht & Kurse
+272, Verschenken & Tauschen
+273, Tauschen
+274, Verleihen
+192, Verschenken
