@@ -7,19 +7,22 @@ import time
 
 class KleinanzeigenBot(threading.Thread):
 
-    #header für req
+    # Standard-Header für HTTP-Anfragen, um sich als Browser zu identifizieren.
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
 
-    #erstelle timestamp im format: [Wed Jan  6 15:44:14 2021]
+    
     def timestamp(self):
+        # Erstellt einen Zeitstempel im Format: [Wed Jan 6 15:44:14 2021].
         return '[' + time.asctime(time.localtime()) + '] '
 
     def extract_list_item_data(self, item):
+        # Extrahiert Daten aus einem HTML-Element, das ein Kleinanzeigen-Listenelement repräsentiert.
         article = item.find('article', class_='aditem')
 
         if article is None:
             return None  
         
+        # Sammelt relevante Daten wie ID, Link, Bild, etc. aus dem Artikel.
         data = {
             'data-adid': article['data-adid'] if 'data-adid' in article.attrs else '',
             'link': article['data-href'] if 'data-href' in article.attrs else '',
@@ -33,7 +36,8 @@ class KleinanzeigenBot(threading.Thread):
         }
         return data
 
-    def return_items_from_req(self, searchterm):
+    def return_items_from_req(self):
+        # Erzeugt die URL für die Kleinanzeigen-Suchanfrage basierend auf den Suchparametern.
 
         # Kategoriecode bauen
         if self.search_category != 0:
@@ -44,28 +48,22 @@ class KleinanzeigenBot(threading.Thread):
         # URL und Header für Webrequest
         req_url = f"https://www.kleinanzeigen.de/s/preis:{self.search_price_min}:{self.search_price_max}/{self.searchterm}/{category_code}"
 
-        print(req_url)
 
-        # Webrequest
-        print(self.timestamp() + 'sending web_request for term: \'' + searchterm + '\'')
+        # Sendet eine HTTP-Anfrage zur angegebenen URL und lädt die HTML-Antwort.
+        print(self.timestamp() + 'sending web_request to: \'' + req_url + '\'')
         req = Request(url=req_url, headers=self.headers) 
         html = urlopen(req).read()
         
-        # HTMLparsing
+        # Verwendet BeautifulSoup, um das HTML zu parsen und die relevanten Daten zu extrahieren.
         data =  BeautifulSoup(html, "html.parser" ).encode('UTF-8')
         soup = BeautifulSoup(data, features="html.parser")
 
-        # finden der artikelliste in html
+        # Findet die Liste der Anzeigen im HTML.
         result = soup.find('ul', {'id':'srchrslt-adtable', 'class':'itemlist ad-list it3'})
 
-        #setze leere itemliste
-        item_list_html = ''
-
-        #Error Handling if HTML parse empty
+        # Behandelt Fehler beim Parsen des HTMLs und extrahiert die Listenelemente.
         try:
             item_list_html = result.find_all('li', class_="ad-listitem")
-
-        #wenn ein error auftritt handle diesen
         except Exception as e:
             print(self.timestamp() + 'Error Exception: ' + str(e))
             item_list_html = ''
@@ -75,12 +73,13 @@ class KleinanzeigenBot(threading.Thread):
 
 
     def append_items_to_json_file(self, item_list, filepath) :
+        # Lädt bestehende Einträge aus einer JSON-Datei und fügt neue hinzu.
         with open(filepath, 'r') as file:
             existing_items = json.load(file)
 
         existing_adids = set(item['data-adid'] for item in existing_items)
 
-        # Initialisiere einen Zähler für die hinzugefügten Items
+        # Zählt, wie viele neue Einträge hinzugefügt werden.
         added_count = 0
 
         for item in item_list:
@@ -102,7 +101,8 @@ class KleinanzeigenBot(threading.Thread):
 
     def __init__(self, searchterm, sleeptime, message_bus_queue, search_category, search_price_min, search_price_max):
         threading.Thread.__init__(self)
-        
+
+        # Initialisiert den KleinanzeigenBot mit den gegebenen Parametern.
         self.searchterm = searchterm
         self.sleeptime = sleeptime
 
@@ -113,23 +113,21 @@ class KleinanzeigenBot(threading.Thread):
         self.search_price_max = search_price_max
 
 
-        # Erstelle den Dateipfad
+        # Erstellt den Dateipfad für die Speicherung von Anzeigendaten.
         self.filepath = os.path.join(os.path.dirname(__file__), 'data', searchterm + '.json')
 
-        # Wenn der Ordner nicht existiert, erstelle diesen
+        # Erstellt den Ordner und die Datei, falls sie nicht existieren.
         directory = os.path.dirname(self.filepath)
         if not os.path.exists(directory):
             os.makedirs(directory)
-
-        # Wenn die JSON-Datei nicht existiert, dann erstelle eine leere Datei
         if not os.path.isfile(self.filepath):
             with open(self.filepath, "w") as text_file:
                 text_file.write("[]")
-        ("search initialized")
+
         self.run()
 
     def run(self):
-        
+        # Hauptausführungsschleife des Bots, führt fortlaufend Suchanfragen durch.
         print("starting search")
         while True:
             try:

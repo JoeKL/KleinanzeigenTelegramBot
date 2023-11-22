@@ -18,9 +18,10 @@ import datetime
 import kleinanzeigenbot
 import json
 
+# Setzen Sie hier Ihren Bot-Token ein
 BOT_TOKEN = "6616611678:AAEVGAnVbc2w2biSU4JqvI9m-KA5hq_4pm8"
 
-# Definieren Sie Konstanten für die verschiedenen Stadien der Konversation
+# Definieren der Konstanten für die verschiedenen Stadien der Konversation
 (
     SEARCH_TERM,
     SEARCH_SLEEP_TIME,
@@ -29,20 +30,23 @@ BOT_TOKEN = "6616611678:AAEVGAnVbc2w2biSU4JqvI9m-KA5hq_4pm8"
     SEARCH_PRICE_MAX,
 ) = range(5)
 
+# Variablen zur Verwaltung von Worker-Prozessen und Nachrichtenwarteschlange
 worker_processes = []
 current_worker_id = 0
 message_bus_queue = multiprocessing.Queue()
 chat_ids_for_notifications = set()
 
+# Laden der Kategorien aus JSON-Dateien
 main_categories = None
 with open("categories/main.json", "r") as file:
     main_categories = json.load(file)
 
+# Laden der Sub-Kategorien aus JSON-Dateien
 subcategories = None
 with open("categories/sub.json", "r") as file:
     subcategories = json.load(file)
 
-# Konfigurieren Sie das Logging
+# Konfigurieren des Logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
@@ -55,11 +59,11 @@ def run_script_in_process(script_path, args):
 
 
 def run_async_monitor(app):
-    # Create a new event loop for the thread
+    # Erstellen eines neuen Event-Loop für den Thread
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 
-    # Run the coroutine in the event loop
+    # Ausühren der Coroutine im Event-Loop aus
     loop.run_until_complete(monitor_queue_and_notify(app))
     loop.close()
 
@@ -70,9 +74,10 @@ async def monitor_queue_and_notify(app):
             searchterm,
             item,
         ) = message_bus_queue.get()  # Blockiert, bis ein Element verfügbar ist
+
         for chat_id in chat_ids_for_notifications:
             try:
-                # Erstellen Sie eine formatierte Nachricht
+                # Erstellen einer formatierten Nachricht
                 message_text = (
                     f'Suche nach "{searchterm}":\n'
                     f"{item['title']}\n"
@@ -87,38 +92,40 @@ async def monitor_queue_and_notify(app):
 
 
 async def start_worker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    # Diese Funktion wird aufgerufen, wenn der Benutzer den Befehl /startworker eingibt.
+    # Sie startet die Konversation, indem sie nach dem Suchbegriff fragt.
     await update.message.reply_text("Wonach möchtest du suchen? \n(Stoppe den Vorgang jederzeit mit /cancel)")
-    return SEARCH_TERM
+    return SEARCH_TERM  # Wechselt zum Zustand SEARCH_TERM, um den Suchbegriff zu erhalten.
 
 
 async def search_term(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    # Diese Funktion wird aufgerufen, um den Suchbegriff vom Benutzer zu erhalten.
     user_input = update.message.text
-    context.user_data["search_term"] = user_input.replace(" ", "-")
+    context.user_data["search_term"] = user_input.replace(" ", "-")  # Speichert den Suchbegriff im Benutzerkontext
     keyboard = [
         [InlineKeyboardButton(category["title"], callback_data=category["callback_data"])]
         for category in main_categories
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('In welcher Hauptkategorie möchtest du suchen?', reply_markup=reply_markup)
-    return SEARCH_CATEGORY
+    return SEARCH_CATEGORY  #
 
 async def category_selection_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    # Diese Funktion wird aufgerufen, wenn der Benutzer eine Hauptkategorie auswählt.
     query = update.callback_query
     await query.answer()
     
-    # Erstellen der Inline-Tasten für Unterkategorien basierend auf der gewählten Hauptkategorie
+    # Extrahiert den Code der ausgewählten Hauptkategorie aus der Callback-Daten
     main_category_code = query.data.split("_")[2]
 
-    print(query.data)
-    
-    # Wenn Hauptkategorie ausgewählt, Subkategorie anzeigen
+    # Überprüft, ob Unterkategorien vorhanden sind und zeigt sie an.
     if main_category_code in subcategories:
 
-        # Erstelle eine Taste für die Hauptkategorie in den Unterkategorien
+        # Erstellt eine Taste für die ausgewählte Hauptkategorie in den Unterkategorien.
         main_category_title = next((cat["title"] for cat in main_categories if cat["callback_data"].endswith(main_category_code)), "Unbekannte Kategorie")
         keyboard = [[InlineKeyboardButton(main_category_title, callback_data=f"select_main_category_{main_category_code}")]]
 
-        # Füge Tasten für die Unterkategorien hinzu
+        # Fügt Tasten für die Unterkategorien hinzu.
         keyboard.extend([
             [InlineKeyboardButton(sub["title"], callback_data=sub["callback_data"])]
             for sub in subcategories[main_category_code]
@@ -126,18 +133,18 @@ async def category_selection_handler(update: Update, context: ContextTypes.DEFAU
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await query.edit_message_text('Bitte wähle eine Unterkategorie:', reply_markup=reply_markup)
-        return SEARCH_CATEGORY
-    
-    # Wenn Alle Kategorien ausgewählt
+        return SEARCH_CATEGORY  # Wechselt erneut zum Zustand SEARCH_CATEGORY.
+
+    # Wenn "Alle Kategorien" ausgewählt wurde, geht es zum Mindestpreiszustand.
     elif main_category_code == "0":
         context.user_data["search_category"] = main_category_code
         await query.edit_message_text(text=f"Suche in allen Kategorien.\nWie hoch soll der Mindestpreis sein (in Euro)?")
-        return SEARCH_PRICE_MIN  # Wechsle zum nächsten Zustand im Konversationsablauf
-    
-    # Fehler Abfangen
+        return SEARCH_PRICE_MIN  # Wechselt zum Zustand SEARCH_PRICE_MIN für die Mindestpreisabfrage.
+
+    # Wenn eine unbekannte Hauptkategorie ausgewählt wurde, wird die Konversation beendet.
     else:
         await query.edit_message_text("Hauptkategorie nicht gefunden.")
-        return ConversationHandler.END  # Oder senden Sie den Benutzer zurück zum Anfang
+        return ConversationHandler.END  # Oder sendet den Benutzer zurück zum Anfang der Konversation.
 
 
 async def subcategory_selection_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -222,10 +229,9 @@ async def sleep_time(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 
-# Funktion zur Erstellung eines Workers und eines Prozesses
-def create_worker_process(
-    search_term, sleep_time, search_category, search_price_min, search_price_max
-):
+def create_worker_process(search_term, sleep_time, search_category, search_price_min, search_price_max):
+    # Die Funktion create_worker_process erstellt einen Worker-Prozess, der die eigentliche Sucharbeit durchführt.
+    # Der Worker-Prozess wird in einem separaten Prozess gestartet.
     global current_worker_id
 
     # Create the worker process
@@ -259,10 +265,11 @@ def create_worker_process(
 
 
 async def stop_worker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    # Diese Funktion wird aufgerufen, um einen laufenden Worker zu stoppen.
     if worker_processes:
         keyboard = []
         for worker_info in worker_processes:
-            # Jede Zeile in der Tastatur ist eine Liste von InlineKeyboardButtons
+            # Erstellt Inline-Tasten für die laufenden Worker.
             button_text = f"Worker ({worker_info['worker_id']})"
             callback_data = f"stop_{worker_info['worker_id']}"
             keyboard.append(
@@ -279,6 +286,7 @@ async def stop_worker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 
 
 async def list_worker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    # Die Funktion list_worker zeigt Informationen über aktive Worker an.
     if not worker_processes:
         await update.message.reply_text("Es gibt derzeit keine aktiven Worker.")
         return
@@ -295,7 +303,7 @@ async def list_worker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 
 
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    # Erstellen der Inline-Tasten
+    # Diese Funktion zeigt eine Liste von Help-Optionen an.
     keyboard = [
         [
             InlineKeyboardButton("Help-Option 1", callback_data="help_option_1"),
@@ -314,6 +322,8 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    # Die Funktion button_handler wird aufgerufen, wenn der Benutzer eine Inline-Taste auswählt, z. B. eine Help-Option.
+
     query = update.callback_query
     await query.answer()
 
@@ -340,37 +350,50 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         elif query.data == "help_option_3":
             await query.edit_message_text(text="Du hast Option 3 gewählt!")
 
+
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    # Diese Funktion wird aufgerufen, um den aktuellen Vorgang abzubrechen und die Konversation zu beenden.
     await update.message.reply_text("Vorgang abgebrochen.")
-    return ConversationHandler.END
+    return ConversationHandler.END  # Beendet die Konversation.
 
 
 def main():
-    # Erstellen Sie den Updater und übergeben Sie Ihr Bot-Token.
+    # Erstellen des Updaters und übergeben des Bot-Token.
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
-    # Starten Sie den Überwachungsthread
+    # Starten des Queue-Überwachungsthreads
     threading.Thread(target=run_async_monitor, args=(app,), daemon=True).start()
 
+    # Definition des ConversationHandlers startworker
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("startworker", start_worker)],
         states={
+            # Erst das Suchwort abfragen
             SEARCH_TERM: [MessageHandler(filters.TEXT & ~filters.COMMAND, search_term)],
+
+            # Dann die Kategorie durch Menü auswählen
             SEARCH_CATEGORY: [
                 CallbackQueryHandler(category_selection_handler, pattern="^category_main_.*$"),
                 CallbackQueryHandler(subcategory_selection_handler, pattern="^select_main_category_.*$"),
                 CallbackQueryHandler(subcategory_selection_handler, pattern="^category_sub_.*$"),
             ],
+
+            # Dann den Mindestpreis in €
             SEARCH_PRICE_MIN: [
                 MessageHandler(filters.TEXT & ~filters.COMMAND, search_price_min)
             ],
+
+            # Dann den Maxpreis in €
             SEARCH_PRICE_MAX: [
                 MessageHandler(filters.TEXT & ~filters.COMMAND, search_price_max)
             ],
+
+            # Und das Request-Intervall in Sekunden
             SEARCH_SLEEP_TIME: [
                 MessageHandler(filters.TEXT & ~filters.COMMAND, sleep_time)
             ],
         },
+        # falls /cancel eingegeben wird, wird der vorgang abgebrochen
         fallbacks=[CommandHandler("cancel", cancel)],
     )
 
