@@ -1,0 +1,66 @@
+[
+    {
+        "title": "Alle Kategorien",
+        "callback_data": "category_main_0"
+    },
+    {
+        "title": "Auto, Rad & Boot",
+        "callback_data": "category_main_210"
+    },
+    {
+        "title": "Dienstleistungen",
+        "callback_data": "category_main_297"
+    },
+    {
+        "title": "Eintrittskarten & Tickets",
+        "callback_data": "category_main_231"
+    },
+    {
+        "title": "Elektronik",
+        "callback_data": "category_main_161"
+    },
+    {
+        "title": "Familie, Kind & Baby",
+        "callback_data": "category_main_17"
+    },
+    {
+        "title": "Freizeit, Hobby & Nachbarschaft",
+        "callback_data": "category_main_185"
+    },
+    {
+        "title": "Haus & Garten",
+        "callback_data": "category_main_80"
+    },
+    {
+        "title": "Haustiere",
+        "callback_data": "category_main_130"
+    },
+    {
+        "title": "Immobilien",
+        "callback_data": "category_main_195"
+    },
+    {
+        "title": "Jobs",
+        "callback_data": "category_main_102"
+    },
+    {
+        "title": "Mode & Beauty",
+        "callback_data": "category_main_153"
+    },
+    {
+        "title": "Musik, Filme & B\u00fccher",
+        "callback_data": "category_main_73"
+    },
+    {
+        "title": "Nachbarschaftshilfe",
+        "callback_data": "category_main_400"
+    },
+    {
+        "title": "Unterricht & Kurse",
+        "callback_data": "category_main_235"
+    },
+    {
+        "title": "Verschenken & Tauschen",
+        "callback_data": "category_main_272"
+    }
+]

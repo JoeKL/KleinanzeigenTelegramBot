@@ -1,3 +1,5 @@
+import json
+
 # Lesen der aktualisierten Kategorien-Datei mit Bindestrichen zur Kennzeichnung der Hierarchie
 file_path = 'categories/extracted_categories.txt'
 
@@ -23,6 +25,11 @@ for line in category_lines:
             subcategories[data_val[1:]] = []
             current_main_category = data_val[1:]
         elif line.startswith("_"):  # Unterkategorie
-            subcategories[current_main_category].append({"title": text, "callback_data": f"category_sub_{data_val[2:]}"})
+            subcategories[current_main_category].append({"title": text, "callback_data": f"category_sub_{data_val[1:]}"})
 
-print(subcategories)
+with open("categories/sub.json", 'w') as file:
+    json.dump(subcategories, file, indent=4)
+
+
+with open("categories/main.json", 'w') as file:
+    json.dump(main_categories, file, indent=4)

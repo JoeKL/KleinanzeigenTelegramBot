@@ -1,0 +1,592 @@
+{
+    "210": [
+        {
+            "title": "Autos",
+            "callback_data": "category_sub_216"
+        },
+        {
+            "title": "Autoteile & Reifen",
+            "callback_data": "category_sub_223"
+        },
+        {
+            "title": "Boote & Bootszubeh\u00f6r",
+            "callback_data": "category_sub_211"
+        },
+        {
+            "title": "Fahrr\u00e4der & Zubeh\u00f6r",
+            "callback_data": "category_sub_217"
+        },
+        {
+            "title": "Motorr\u00e4der & Motorroller",
+            "callback_data": "category_sub_305"
+        },
+        {
+            "title": "Motorradteile & Zubeh\u00f6r",
+            "callback_data": "category_sub_306"
+        },
+        {
+            "title": "Nutzfahrzeuge & Anh\u00e4nger",
+            "callback_data": "category_sub_276"
+        },
+        {
+            "title": "Reparaturen & Dienstleistungen",
+            "callback_data": "category_sub_280"
+        },
+        {
+            "title": "Wohnwagen & -mobile",
+            "callback_data": "category_sub_220"
+        },
+        {
+            "title": "Weiteres Auto, Rad & Boot",
+            "callback_data": "category_sub_241"
+        }
+    ],
+    "297": [
+        {
+            "title": "Altenpflege",
+            "callback_data": "category_sub_288"
+        },
+        {
+            "title": "Auto, Rad & Boot",
+            "callback_data": "category_sub_289"
+        },
+        {
+            "title": "Babysitter/-in & Kinderbetreuung",
+            "callback_data": "category_sub_290"
+        },
+        {
+            "title": "Elektronik",
+            "callback_data": "category_sub_293"
+        },
+        {
+            "title": "Haus & Garten",
+            "callback_data": "category_sub_291"
+        },
+        {
+            "title": "K\u00fcnstler/-in & Musiker/-in",
+            "callback_data": "category_sub_292"
+        },
+        {
+            "title": "Reise & Event",
+            "callback_data": "category_sub_294"
+        },
+        {
+            "title": "Tierbetreuung & Training",
+            "callback_data": "category_sub_295"
+        },
+        {
+            "title": "Umzug & Transport",
+            "callback_data": "category_sub_296"
+        },
+        {
+            "title": "Weitere Dienstleistungen",
+            "callback_data": "category_sub_298"
+        }
+    ],
+    "231": [
+        {
+            "title": "Bahn & \u00d6PNV",
+            "callback_data": "category_sub_286"
+        },
+        {
+            "title": "Comedy & Kabarett",
+            "callback_data": "category_sub_254"
+        },
+        {
+            "title": "Gutscheine",
+            "callback_data": "category_sub_287"
+        },
+        {
+            "title": "Kinder",
+            "callback_data": "category_sub_252"
+        },
+        {
+            "title": "Konzerte",
+            "callback_data": "category_sub_255"
+        },
+        {
+            "title": "Sport",
+            "callback_data": "category_sub_257"
+        },
+        {
+            "title": "Theater & Musical",
+            "callback_data": "category_sub_251"
+        },
+        {
+            "title": "Weitere Eintrittskarten & Tickets",
+            "callback_data": "category_sub_256"
+        }
+    ],
+    "161": [
+        {
+            "title": "Audio & Hifi",
+            "callback_data": "category_sub_172"
+        },
+        {
+            "title": "Dienstleistungen Elektronik",
+            "callback_data": "category_sub_226"
+        },
+        {
+            "title": "Foto",
+            "callback_data": "category_sub_245"
+        },
+        {
+            "title": "Handy & Telefon",
+            "callback_data": "category_sub_173"
+        },
+        {
+            "title": "Haushaltsger\u00e4te",
+            "callback_data": "category_sub_176"
+        },
+        {
+            "title": "Konsolen",
+            "callback_data": "category_sub_279"
+        },
+        {
+            "title": "Notebooks",
+            "callback_data": "category_sub_278"
+        },
+        {
+            "title": "PCs",
+            "callback_data": "category_sub_228"
+        },
+        {
+            "title": "PC-Zubeh\u00f6r & Software",
+            "callback_data": "category_sub_225"
+        },
+        {
+            "title": "Tablets & Reader",
+            "callback_data": "category_sub_285"
+        },
+        {
+            "title": "TV & Video",
+            "callback_data": "category_sub_175"
+        },
+        {
+            "title": "Videospiele",
+            "callback_data": "category_sub_227"
+        },
+        {
+            "title": "Weitere Elektronik",
+            "callback_data": "category_sub_168"
+        }
+    ],
+    "17": [
+        {
+            "title": "Altenpflege",
+            "callback_data": "category_sub_236"
+        },
+        {
+            "title": "Baby- & Kinderkleidung",
+            "callback_data": "category_sub_22"
+        },
+        {
+            "title": "Baby- & Kinderschuhe",
+            "callback_data": "category_sub_19"
+        },
+        {
+            "title": "Baby-Ausstattung",
+            "callback_data": "category_sub_258"
+        },
+        {
+            "title": "Babyschalen & Kindersitze",
+            "callback_data": "category_sub_21"
+        },
+        {
+            "title": "Babysitter/-in & Kinderbetreuung",
+            "callback_data": "category_sub_237"
+        },
+        {
+            "title": "Kinderwagen & Buggys",
+            "callback_data": "category_sub_25"
+        },
+        {
+            "title": "Kinderzimmerm\u00f6bel",
+            "callback_data": "category_sub_20"
+        },
+        {
+            "title": "Spielzeug",
+            "callback_data": "category_sub_23"
+        },
+        {
+            "title": "Weiteres Familie, Kind & Baby",
+            "callback_data": "category_sub_18"
+        }
+    ],
+    "185": [
+        {
+            "title": "Esoterik & Spirituelles",
+            "callback_data": "category_sub_232"
+        },
+        {
+            "title": "Essen & Trinken",
+            "callback_data": "category_sub_248"
+        },
+        {
+            "title": "Freizeitaktivit\u00e4ten",
+            "callback_data": "category_sub_187"
+        },
+        {
+            "title": "Handarbeit, Basteln & Kunsthandwerk",
+            "callback_data": "category_sub_282"
+        },
+        {
+            "title": "Kunst & Antiquit\u00e4ten",
+            "callback_data": "category_sub_240"
+        },
+        {
+            "title": "K\u00fcnstler/-in & Musiker/-in",
+            "callback_data": "category_sub_191"
+        },
+        {
+            "title": "Modellbau",
+            "callback_data": "category_sub_249"
+        },
+        {
+            "title": "Reise & Eventservices",
+            "callback_data": "category_sub_233"
+        },
+        {
+            "title": "Sammeln",
+            "callback_data": "category_sub_234"
+        },
+        {
+            "title": "Sport & Camping",
+            "callback_data": "category_sub_230"
+        },
+        {
+            "title": "Tr\u00f6del",
+            "callback_data": "category_sub_250"
+        },
+        {
+            "title": "Verloren & Gefunden",
+            "callback_data": "category_sub_189"
+        },
+        {
+            "title": "Weiteres Freizeit, Hobby & Nachbarschaft",
+            "callback_data": "category_sub_242"
+        }
+    ],
+    "80": [
+        {
+            "title": "Badezimmer",
+            "callback_data": "category_sub_91"
+        },
+        {
+            "title": "B\u00fcro",
+            "callback_data": "category_sub_93"
+        },
+        {
+            "title": "Dekoration",
+            "callback_data": "category_sub_246"
+        },
+        {
+            "title": "Dienstleistungen Haus & Garten",
+            "callback_data": "category_sub_239"
+        },
+        {
+            "title": "Gartenzubeh\u00f6r & Pflanzen",
+            "callback_data": "category_sub_89"
+        },
+        {
+            "title": "Heimtextilien",
+            "callback_data": "category_sub_90"
+        },
+        {
+            "title": "Heimwerken",
+            "callback_data": "category_sub_84"
+        },
+        {
+            "title": "K\u00fcche & Esszimmer",
+            "callback_data": "category_sub_86"
+        },
+        {
+            "title": "Lampen & Licht",
+            "callback_data": "category_sub_82"
+        },
+        {
+            "title": "Schlafzimmer",
+            "callback_data": "category_sub_81"
+        },
+        {
+            "title": "Wohnzimmer",
+            "callback_data": "category_sub_88"
+        },
+        {
+            "title": "Weiteres Haus & Garten",
+            "callback_data": "category_sub_87"
+        }
+    ],
+    "130": [
+        {
+            "title": "Fische",
+            "callback_data": "category_sub_138"
+        },
+        {
+            "title": "Hunde",
+            "callback_data": "category_sub_134"
+        },
+        {
+            "title": "Katzen",
+            "callback_data": "category_sub_136"
+        },
+        {
+            "title": "Kleintiere",
+            "callback_data": "category_sub_132"
+        },
+        {
+            "title": "Nutztiere",
+            "callback_data": "category_sub_135"
+        },
+        {
+            "title": "Pferde",
+            "callback_data": "category_sub_139"
+        },
+        {
+            "title": "Tierbetreuung & Training",
+            "callback_data": "category_sub_133"
+        },
+        {
+            "title": "Vermisste Tiere",
+            "callback_data": "category_sub_283"
+        },
+        {
+            "title": "V\u00f6gel",
+            "callback_data": "category_sub_243"
+        },
+        {
+            "title": "Zubeh\u00f6r",
+            "callback_data": "category_sub_313"
+        }
+    ],
+    "195": [
+        {
+            "title": "Auf Zeit & WG",
+            "callback_data": "category_sub_199"
+        },
+        {
+            "title": "Eigentumswohnungen",
+            "callback_data": "category_sub_196"
+        },
+        {
+            "title": "Ferien- & Auslandsimmobilien",
+            "callback_data": "category_sub_275"
+        },
+        {
+            "title": "Garagen & Stellpl\u00e4tze",
+            "callback_data": "category_sub_197"
+        },
+        {
+            "title": "Gewerbeimmobilien",
+            "callback_data": "category_sub_277"
+        },
+        {
+            "title": "Grundst\u00fccke & G\u00e4rten",
+            "callback_data": "category_sub_207"
+        },
+        {
+            "title": "H\u00e4user zum Kauf",
+            "callback_data": "category_sub_208"
+        },
+        {
+            "title": "H\u00e4user zur Miete",
+            "callback_data": "category_sub_205"
+        },
+        {
+            "title": "Mietwohnungen",
+            "callback_data": "category_sub_203"
+        },
+        {
+            "title": "Umzug & Transport",
+            "callback_data": "category_sub_238"
+        },
+        {
+            "title": "Weitere Immobilien",
+            "callback_data": "category_sub_198"
+        }
+    ],
+    "102": [
+        {
+            "title": "Ausbildung",
+            "callback_data": "category_sub_118"
+        },
+        {
+            "title": "Bau, Handwerk & Produktion",
+            "callback_data": "category_sub_111"
+        },
+        {
+            "title": "B\u00fcroarbeit & Verwaltung",
+            "callback_data": "category_sub_114"
+        },
+        {
+            "title": "Gastronomie & Tourismus",
+            "callback_data": "category_sub_110"
+        },
+        {
+            "title": "Kundenservice & Call Center",
+            "callback_data": "category_sub_105"
+        },
+        {
+            "title": "Mini- & Nebenjobs",
+            "callback_data": "category_sub_107"
+        },
+        {
+            "title": "Praktika",
+            "callback_data": "category_sub_125"
+        },
+        {
+            "title": "Sozialer Sektor & Pflege",
+            "callback_data": "category_sub_123"
+        },
+        {
+            "title": "Transport, Logistik & Verkehr",
+            "callback_data": "category_sub_247"
+        },
+        {
+            "title": "Vertrieb, Einkauf & Verkauf",
+            "callback_data": "category_sub_117"
+        },
+        {
+            "title": "Weitere Jobs",
+            "callback_data": "category_sub_109"
+        }
+    ],
+    "153": [
+        {
+            "title": "Beauty & Gesundheit",
+            "callback_data": "category_sub_224"
+        },
+        {
+            "title": "Damenbekleidung",
+            "callback_data": "category_sub_154"
+        },
+        {
+            "title": "Damenschuhe",
+            "callback_data": "category_sub_159"
+        },
+        {
+            "title": "Herrenbekleidung",
+            "callback_data": "category_sub_160"
+        },
+        {
+            "title": "Herrenschuhe",
+            "callback_data": "category_sub_158"
+        },
+        {
+            "title": "Taschen & Accessoires",
+            "callback_data": "category_sub_156"
+        },
+        {
+            "title": "Uhren & Schmuck",
+            "callback_data": "category_sub_157"
+        },
+        {
+            "title": "Weiteres Mode & Beauty",
+            "callback_data": "category_sub_155"
+        }
+    ],
+    "73": [
+        {
+            "title": "B\u00fccher & Zeitschriften",
+            "callback_data": "category_sub_76"
+        },
+        {
+            "title": "B\u00fcro & Schreibwaren",
+            "callback_data": "category_sub_281"
+        },
+        {
+            "title": "Comics",
+            "callback_data": "category_sub_284"
+        },
+        {
+            "title": "Fachb\u00fccher, Schule & Studium",
+            "callback_data": "category_sub_77"
+        },
+        {
+            "title": "Film & DVD",
+            "callback_data": "category_sub_79"
+        },
+        {
+            "title": "Musik & CDs",
+            "callback_data": "category_sub_78"
+        },
+        {
+            "title": "Musikinstrumente",
+            "callback_data": "category_sub_74"
+        },
+        {
+            "title": "Weitere Musik, Filme & B\u00fccher",
+            "callback_data": "category_sub_75"
+        }
+    ],
+    "400": [
+        {
+            "title": "Nachbarschaftshilfe",
+            "callback_data": "category_sub_401"
+        }
+    ],
+    "235": [
+        {
+            "title": "Beauty & Gesundheit",
+            "callback_data": "category_sub_269"
+        },
+        {
+            "title": "Computerkurse",
+            "callback_data": "category_sub_260"
+        },
+        {
+            "title": "Esoterik & Spirituelles",
+            "callback_data": "category_sub_265"
+        },
+        {
+            "title": "Kochen & Backen",
+            "callback_data": "category_sub_263"
+        },
+        {
+            "title": "Kunst & Gestaltung",
+            "callback_data": "category_sub_264"
+        },
+        {
+            "title": "Musik & Gesang",
+            "callback_data": "category_sub_262"
+        },
+        {
+            "title": "Nachhilfe",
+            "callback_data": "category_sub_268"
+        },
+        {
+            "title": "Sportkurse",
+            "callback_data": "category_sub_261"
+        },
+        {
+            "title": "Sprachkurse",
+            "callback_data": "category_sub_271"
+        },
+        {
+            "title": "Tanzkurse",
+            "callback_data": "category_sub_267"
+        },
+        {
+            "title": "Weiterbildung",
+            "callback_data": "category_sub_266"
+        },
+        {
+            "title": "Weitere Unterricht & Kurse",
+            "callback_data": "category_sub_270"
+        }
+    ],
+    "272": [
+        {
+            "title": "Tauschen",
+            "callback_data": "category_sub_273"
+        },
+        {
+            "title": "Verleihen",
+            "callback_data": "category_sub_274"
+        },
+        {
+            "title": "Verschenken",
+            "callback_data": "category_sub_192"
+        }
+    ]
+}
