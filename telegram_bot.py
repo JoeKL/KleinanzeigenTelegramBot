@@ -19,7 +19,7 @@ import kleinanzeigenbot
 import json
 
 # Setzen Sie hier Ihren Bot-Token ein
-BOT_TOKEN = "6616611678:AAEVGAnVbc2w2biSU4JqvI9m-KA5hq_4pm8"
+BOT_TOKEN = ""
 
 # Definieren der Konstanten für die verschiedenen Stadien der Konversation
 (
