@@ -35,8 +35,16 @@ class KleinanzeigenBot(threading.Thread):
 
     def return_items_from_req(self, searchterm):
 
+        # Kategoriecode bauen
+        if self.search_category != 0:
+            category_code = f"k0c{self.search_category}"
+        else: 
+            category_code = "k0"
+
         # URL und Header für Webrequest
-        req_url = f"https://www.kleinanzeigen.de/s/preis:{self.search_price_min}:{self.search_price_max}/{self.searchterm}/k0"
+        req_url = f"https://www.kleinanzeigen.de/s/preis:{self.search_price_min}:{self.search_price_max}/{self.searchterm}/{category_code}"
+
+        print(req_url)
 
         # Webrequest
         print(self.timestamp() + 'sending web_request for term: \'' + searchterm + '\'')
