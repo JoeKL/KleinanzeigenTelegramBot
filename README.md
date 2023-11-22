@@ -43,7 +43,3 @@ Verbesserungen und Vorschläge sind jederzeit willkommen. Bitte erstelle Pull-An
 
 ## Haftungsausschluss
 Dieser Bot hat keine Verbindung zur offiziellen Kleinanzeigen-Webseite und dient ausschließlich zu Bildungszwecken.
-
-## Noch zu implementieren
-- nach Preis-Range suchen
-- Suchkategorie einstellen

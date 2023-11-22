@@ -12,7 +12,6 @@ from telegram.ext import (
 )
 
 import logging
-
 import multiprocessing
 import subprocess
 import datetime
@@ -88,7 +87,7 @@ async def monitor_queue_and_notify(app):
 
 
 async def start_worker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-    await update.message.reply_text("Wonach möchtest du suchen?")
+    await update.message.reply_text("Wonach möchtest du suchen? \n(Stoppe den Vorgang jederzeit mit /cancel)")
     return SEARCH_TERM
 
 
@@ -341,6 +340,10 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         elif query.data == "help_option_3":
             await query.edit_message_text(text="Du hast Option 3 gewählt!")
 
+async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    await update.message.reply_text("Vorgang abgebrochen.")
+    return ConversationHandler.END
+
 
 def main():
     # Erstellen Sie den Updater und übergeben Sie Ihr Bot-Token.
@@ -368,7 +371,7 @@ def main():
                 MessageHandler(filters.TEXT & ~filters.COMMAND, sleep_time)
             ],
         },
-        fallbacks=[],
+        fallbacks=[CommandHandler("cancel", cancel)],
     )
 
     # Definieren Sie CommandHandler
