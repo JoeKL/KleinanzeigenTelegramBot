@@ -133,7 +133,7 @@ class KleinanzeigenBot(threading.Thread):
             try:
 
                 # hole aktuelle items
-                item_list = self.return_items_from_req(self.searchterm)
+                item_list = self.return_items_from_req()
 
                 added_items_count = self.append_items_to_json_file(item_list, self.filepath)
 
