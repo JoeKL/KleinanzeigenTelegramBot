@@ -1,45 +1,43 @@
 # Kleinanzeigen Telegram Bot
 
-![Banner generated with Dall-E](banner.png)
+## Overview
+This Telegram Bot monitors the Kleinanzeigen website for new listings that match user-defined search terms and time intervals. The bot utilizes the Telegram API to notify users immediately when new offers are found.
 
-## Überblick
-Dieser Telegram Bot hält Ausschau auf der Kleinanzeigen-Webseite nach neuen Angeboten, die zu benutzerdefinierten Suchbegriffen und Zeitintervallen passen. Der Bot nutzt die Telegram API, um Benutzer über neue Angebote zu informieren.
+## How It Works
+- **Monitoring**: The bot continuously scans Kleinanzeigen for specific search keywords.
+- **Notifications**: Users receive automatic updates via Telegram whenever a new listing is found.
+- **Customization**: Users can define search terms and polling intervals according to their preferences.
 
-## Funktionsweise
-- **Überwachung**: Der Bot durchsucht ständig Kleinanzeigen nach bestimmten Suchbegriffen.
-- **Benachrichtigungen**: Benutzer erhalten automatische Updates in Telegram, wenn neue Angebote gefunden werden.
-- **Anpassbarkeit**: Benutzer können Suchbegriffe und Zeitintervalle nach ihren Wünschen festlegen.
-
-## Einrichtung
-1. **Voraussetzungen**:
-   - Python 3.6 oder neuer
-   - Erforderliche Bibliotheken: `telegram`, `beautifulsoup4`, `multiprocessing`, `threading`, `asyncio`.
+## Setup
+1. **Prerequisites**:
+   - Python 3.6 or newer
+   - Required libraries: `telegram`, `beautifulsoup4`, `multiprocessing`, `threading`, `asyncio`.
 
 2. **Bot Token**:
-   - Erstelle einen neuen Bot über [BotFather](https://t.me/botfather) in Telegram und kopiere das Bot-Token.
+   - Create a new bot via [BotFather](https://t.me/botfather) on Telegram and copy the Bot Token.
 
-3. **Konfiguration**:
-   - Ersetze `BOT_TOKEN` in der Hauptdatei durch dein persönliches Bot-Token.
+3. **Configuration**:
+   - Replace `BOT_TOKEN` in the main file with your personal Bot Token.
 
-4. **Abhängigkeiten installieren**:
-   - Führe `pip install -r requirements.txt` aus, um die benötigten Bibliotheken zu installieren.
+4. **Install Dependencies**:
+   - Run `pip install -r requirements.txt` to install the necessary libraries.
 
-## Verwendung
-- **Bot starten**: Führe `python telegram_bot.py` aus.
-- **Arbeiter starten**: Sende `/startworker` im Chat, um die Überwachung zu beginnen.
-- **Suchbegriff festlegen**: Folge den Anweisungen im Chat, um Suchbegriffe und Intervalle festzulegen.
-- **Arbeiter stoppen**: Sende `/stopworker`, um die Überwachung zu beenden.
-- **Arbeiter auflisten**: Sende `/listworker`, um aktive Arbeiter anzuzeigen.
+## Usage
+- **Start Bot**: Run `python telegram_bot.py`.
+- **Start Worker**: Send `/startworker` in the chat to begin monitoring.
+- **Set Search Term**: Follow the instructions in the chat to define search terms and intervals.
+- **Stop Worker**: Send `/stopworker` to stop monitoring.
+- **List Workers**: Send `/listworker` to view active monitoring tasks.
 
-## Erweiterte Funktionen
-- **Fehlerbehandlung**: Der Bot verfügt über ein zuverlässiges Fehlerbehandlungssystem.
-- **Protokollierung**: Umfangreiche Protokollierungsfunktionen unterstützen bei der Fehlerbehebung.
+## Advanced Features
+- **Error Handling**: The bot includes a reliable error handling system.
+- **Logging**: Comprehensive logging capabilities assist with troubleshooting and debugging.
 
-## Lizenz
-Dieses Projekt steht unter der MIT-Lizenz. Es ist für private und kommerzielle Nutzung frei verfügbar.
+## License
+This project is licensed under the MIT License. It is free for both private and commercial use.
 
-## Mitwirken
-Verbesserungen und Vorschläge sind jederzeit willkommen. Bitte erstelle Pull-Anfragen oder meldet Probleme im GitHub-Repository.
+## Contributing
+Improvements and suggestions are always welcome. Please submit pull requests or report issues in the GitHub repository.
 
-## Haftungsausschluss
-Dieser Bot hat keine Verbindung zur offiziellen Kleinanzeigen-Webseite und dient ausschließlich zu Bildungszwecken.
+## Disclaimer
+This bot is not affiliated with the official Kleinanzeigen website and is intended for educational purposes only.
